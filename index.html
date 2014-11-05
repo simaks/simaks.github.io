@@ -8,6 +8,21 @@
     <meta name="author" content="Simas Skilinskas">
     <title>Simas Skilinskas</title>
     <style>
+        @keyframes colorize {
+            0% {
+                color: #393;
+            }
+            33% {
+                color: #933;
+            }
+            66% {
+                color: #339;
+            }
+            100% {
+                color: #393;
+            }
+        }
+
         html {
             margin: 0;
             padding: 0;
@@ -21,7 +36,8 @@
             height: 100%;
             position: relative;
             background: #000;
-            color: #b6ffb9;
+            color: #393;
+            animation: colorize 60s linear infinite;
         }
 
         .txt-img-wrap {
