@@ -43,6 +43,7 @@ body {
 }
 
 .txt-img {
+    transition-duration: 10s;
     font-family: monospace;
     text-align: left;
     display: inline-block;
@@ -69,6 +70,12 @@ body {
     left: 0;
     box-shadow: inset 0 0 10px #000;
     border-radius: inherit;
+}
+
+.txt-img:active {
+    transition-duration: 1s;
+    background: #ccc;
+    color: #333;
 }
 
 @media (max-width: 512px) {
