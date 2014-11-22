@@ -1,4 +1,4 @@
-@keyframes colorize {
+@keyframes colorize-color {
     0% {
         color: #393;
     }
@@ -13,6 +13,92 @@
     }
 }
 
+@keyframes colorize-border {
+    0% {
+        border-color: #393;
+    }
+    33% {
+        border-color: #933;
+    }
+    66% {
+        border-color: #339;
+    }
+    100% {
+        border-color: #393;
+    }
+}
+
+@keyframes colorize-shadow {
+    0% {
+        box-shadow: 0 0 1rem 0 #393;
+    }
+    33% {
+        box-shadow: 0 0 1rem 0 #933;
+    }
+    66% {
+        box-shadow: 0 0 1rem 0 #339;
+    }
+    100% {
+        box-shadow: 0 0 1rem 0 #393;
+    }
+}
+
+@keyframes float-around-1 {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(0deg) translateX(-13em) translateY(-13em) rotate(0deg);
+    }
+    100% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(360deg) translateX(-13em) translateY(-13em) rotate(-360deg);
+    }
+}
+
+@keyframes float-around-2 {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(0deg) translateX(-13em) translateY(13em) rotate(0deg);
+    }
+    100% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(360deg) translateX(-13em) translateY(13em) rotate(-360deg);
+    }
+}
+
+@keyframes float-around-3 {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(0deg) translateX(13em) translateY(13em) rotate(0deg);
+    }
+    100% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(360deg) translateX(13em) translateY(13em) rotate(-360deg);
+    }
+}
+
+@keyframes float-around-4 {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(0deg) translateX(13em) translateY(-13em) rotate(0deg);
+    }
+    100% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(360deg) translateX(13em) translateY(-13em) rotate(-360deg);
+    }
+}
+
+* {
+    transition-property: color, box-shadow, opacity, border-color, background-color;
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -20,7 +106,7 @@ html {
 }
 
 body {
-    font-size: 20px;
+    font-size: 10px;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -28,7 +114,7 @@ body {
     position: relative;
     background: #000;
     color: #393;
-    animation: colorize 60s linear infinite;
+    animation: colorize-color 60s linear infinite, colorize-shadow 60s linear infinite, colorize-border 60s linear infinite;
 }
 
 .txt-img-wrap {
@@ -37,7 +123,7 @@ body {
     right: 0;
     top: 50%;
     left: 0;
-    font-size: 0.3em;
+    font-size: 0.7em;
     line-height: 1em;
     margin: -36em 0 0;
 }
@@ -55,7 +141,7 @@ body {
 .txt-img:before {
     display: block;
     position: relative;
-    content: "                                                 ,rrS22222s;,                                               \A                                           :;iH@@@@@@@@@@@@@@@&2:.                                          \A                                         S@@@@@@@@@@@@@##@@@@@@@@@Bi,                                       \A                                     ,A@@@@@@@@@@@@@@###BHAAB##M@@@@@Gr.                                    \A                                   .M@@@@@@@@@##@#####M#MBA&AHBAABM#@@#S.                                   \A                                 ,3@@@@#MBHAHMBHB##MBBHHHMMBAhGAH&hGHHMBX;\A                                i#@@M#@#BHB&h9X2XAHHHHHAAHM###AGAHM&X&BBHHr                                 \A                               2@#BAAHHH&9&AAGhXsShABBBMAAAHBBBMHAAMH&hAAGhs                                \A                              SMGhh9h925srr335i5:..,:riSirrs2Xhh9&&AGhGX3h3&S                               \A                            ,A#AAhhXir;:,..;:,,;.       ..   .,::;rs5S3HMAAhA9                              \A                           .H#AAG9Xs:::,,............            ...,:rihM#&GM;\A                           :AAhGG3i;::,::,,,,....,,...................:;;i9&X99                             \A                           rHGAHG5sr;;::::,,,,,,,,,,,,,,,,,,,,,,,,,,,:::riXGh3h,                            \A                           rHAH&92srrr;::::::::,,,,,,,,,,,,,,,,,,,,::;;:ri2X3X9,                            \A                           ;BBHGXSirrrr;:::::::,,,,,,,,,,,,,,,,,,:::;;;;;rS2XXX                             \A                           ,MMB&XSisrrr;::::,,,,,,,,,,,,,...,,,,:::;;rr;;;r5hGX                             \A                            HMMA5ssssr;:,,,,....,.,,,........,,,,,,::rrr;;;ShAX                             \A                            AM#&srrss;;;rrrsssr;::,,,,,,,:::;:::,,,,.,;r;;;iGA2                             \A                            ;MMM2ii2&&HM##@@@@@@A2r;:;;rrXH##MBHGXSSr;;;::;S&A;\A                             S9r .@@@#MBM@@@@@#M#B&HhsrGhGAHB#@@@@@@@@#@#h.r&X                              \A                              ;:,;@@iXS2MArM@#;s29G@@@@@@5SSr9@@&&#GX32h@@   .                              \A                           G&rB@#&AMsisi2i;ri;:;;;5@;..9@::;;;ss;s3SrsSs@&iXAr,;                            \A                           r&h2ASii#i;;:::;:;;;::;@5.   #3.:;;;:;::::;;5MsS2h2AM,                           \A                           .rr2S;;r52is;::::,::r5#S;;. .;@X,...,,...,;;As;;;sSr;                            \A                            ;:rsrrsrs522XX933hAH&r:rr:.,;sAAX2222552X3Sr;;;:i;.:                            \A                            ,,:sSssr;;;;::::,,,:;rrrr;,.,r;:,:;rrrrr;;;;rrr;::,,                            \A                            ;:;sXsiir;;:::::,,,;rs;rr,...;r,,....,,,::;rsrri;::,                            \A                            r::S&Ssisr;;;;;:::;r5r;;r,.,;ri;,:::::::;rrssri2r::;                            \A                            :r,:X3iiiis;;;;;;;:;hhA#M2iiA#AS,:;;;;;rssiisrX2r,;.                            \A                             ::,;hSSsisr;;;;;:::sGG&M@###H9;,::;;;;sssrsrs2:,;;                             \A                                  s5irsrrr;;:;;:,,,,,;r;:,,,;:::;;;rr;rr;;, .                               \A                                  :2isssrr;;;;::,,.. ..  .,::;;:;;;rr;rr;                                   \A                                  .2isriirr;;;;;;;;;;::;rrrrr;;;;rrsr;rs,                                   \A                                   2SssiiirrrSAHAGh39GGGAAHHH5rrrsssrrsi                                    \A                                   rXiiSSisrr;s55sr;rsr;;rss;:;rrsisrrsr                                    \A                                    22SS5iss;;;riir;;::;rsr;;;;rrsisrss;                                    \A                                    ;25S22Sisrssi52X99hXirrsiissiSisssri                                    \A                                    ;XS5525iiiSiiiiiiisssiiiisrssssiiiXi                                    \A                                    :MA95iisrrrr;;:,,,,::;;;;;;rrsS9&9ir                                    \A                                    .XhMMG2ir;;::::;;::;:::::;rsSGHA2;;r                                    \A                                     irSA@#A2sr;;;;rrrrr;;;;;s5&MBXr::;r                                    \A                                     i;;s9#@@B9Srrrrrrrrr;rsXH##AS;::;rs                                    \A                                     ir;;r2B@@@@#A9XXXXXhA#@@@H2s;:::;ri.                                   \A                                     5r;::;iGH#@@@@@@@@@@@@#&Srr;:::;;;siAGSs:                              \A                                   .;Sr;;::;i25239h9393XX2ir;;r;;::::;;rsiA@@@@A;                           \A                              .:SB@#2ssr;;::rSirrr;:. .,:::;rrrr;::::;;;rr,2MAM@@B:                         \A                           .2@@@@Girisrrr;;:;sSsrrrr;,:;;;rrrsr;;;:;;;;;;r:rM&G#@@@#Xi;.                    \A                        ,;G@@@hr::;isrrrrr;;:rSisrrsSiisrrrrsir;;;;;;;;;;r,2MGH@@@@@@@@@#Gr.                \A                    ;X#@@@@@@#r ,;rirrrrrrr;;;s5issrssrrrrrrsr;:::;;;;;;;:r#HM#####@@@@@@@@@@hr.            \A               ,rh#@@@@@@@###@A.,;rrr;rrrsrr;;riSissrrrsrrrss;;;;;;;;;;;::H##@##M#####@@@@@@@@@@#3;.        \A          ,r2H@@@@@@@########@@H:.:;;;;;rrsrr;;riisr;rrrrrssr;;;;;;;;;;::A@@@###############@@@@@@@@@Gr,    \A     .r9#@@@@@@@@@###########@@@@h;,,::;;;rsr;;;riiisrrsiisr;;;;;;;;:,.;M@@####################@@@@@@@@@@AS,\A  ,S#@@@@@@@@#################@@@@@@hr,.,,;;r;r;;rriiiiisr;;;:::::,.:iM@@@###M#####################@@@@@@@@G\Arh@@@@@@@######################@@@@@@@@BS;,,::;::;;rrrrr;;::,...:r2M@@@@@######################M#########@#A\AH@@@@#######M#####################@@@@@@@@@H9S;,.,,:::::::::;rX#@@@@@@@####################################H\AHM#################################@@@@@@@@@@@@@@@@###@@@@@@@@@@@@@@@######################################B\AMH############################@@#######@@@@@@@@@@@@@@@@@@@@@@@@@@@###########@@############################M\AMB##########################@@##@@@####@##@@@@@@@@@@@@@@@@@@@@#########@#####@@############################M\A#M####################@@##@@@@#@@@@@@@@@#############@@@##@####@#@##@@@@@##@@@@#@##############@###########M\A####################@#@##@@@@@@@@@@@@@@@@@#@#########@@###@@@@@@@@@@@@@@@@@@###@@@##@##########@@###########\A#####################@@@####@@@@@@@@@@@@@@@@@@####@@@#@@#@@@@@@@@@#@@@@#@@@@###@#####@######################\A#########@###@@##@@#@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@#@#@@@@@@@@@@@#@@#@#@#@#@#############@##########\A########@##@#@@@#@#@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@#@@@@##@@@@@@@@@@@@@@@@@@@@@@#@##@#@@##@@####@@@@@#######\A@#@@@###@@@@#@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@###@@@@@#@@@@###@@@@#######\A##@@@##@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###@@@@@@@@@@@@@@#@###@#@###@@##@@@########\A@#@@@@@##@@@@@@@@##@@@#@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@#@@@#@@@@@@#@@###@##@@@@@@######\A@#@@@@@@@@@@@@@@@@@@@@@@####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@#@@@@@@@@#@@###@##@@@@###@@#\A@#@@@@#@@@@@@@@@@@#@@#@@@@@@#@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###@@@#@@####@@@@@#@#@@#\A@#@@@@@#@@@@@@@#@@@@@#@@#@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@@###@@@@@#@@@@@@@@@#\A@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\A@#@@@@@@@@@@@#@########@######@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#########@@@#######@##@@@#@@##";
+    content: "\A\A                                                 ,rrS22222s;,                                               \A                                           :;iH@@@@@@@@@@@@@@@&2:.                                          \A                                         S@@@@@@@@@@@@@##@@@@@@@@@Bi,                                       \A                                     ,A@@@@@@@@@@@@@@###BHAAB##M@@@@@Gr.                                    \A                                   .M@@@@@@@@@##@#####M#MBA&AHBAABM#@@#S.                                   \A                                 ,3@@@@#MBHAHMBHB##MBBHHHMMBAhGAH&hGHHMBX;\A                                i#@@M#@#BHB&h9X2XAHHHHHAAHM###AGAHM&X&BBHHr                                 \A                               2@#BAAHHH&9&AAGhXsShABBBMAAAHBBBMHAAMH&hAAGhs                                \A                              SMGhh9h925srr335i5:..,:riSirrs2Xhh9&&AGhGX3h3&S                               \A                            ,A#AAhhXir;:,..;:,,;.       ..   .,::;rs5S3HMAAhA9                              \A                           .H#AAG9Xs:::,,............            ...,:rihM#&GM;\A                           :AAhGG3i;::,::,,,,....,,...................:;;i9&X99                             \A                           rHGAHG5sr;;::::,,,,,,,,,,,,,,,,,,,,,,,,,,,:::riXGh3h,                            \A                           rHAH&92srrr;::::::::,,,,,,,,,,,,,,,,,,,,::;;:ri2X3X9,                            \A                           ;BBHGXSirrrr;:::::::,,,,,,,,,,,,,,,,,,:::;;;;;rS2XXX                             \A                           ,MMB&XSisrrr;::::,,,,,,,,,,,,,...,,,,:::;;rr;;;r5hGX                             \A                            HMMA5ssssr;:,,,,....,.,,,........,,,,,,::rrr;;;ShAX                             \A                            AM#&srrss;;;rrrsssr;::,,,,,,,:::;:::,,,,.,;r;;;iGA2                             \A                            ;MMM2ii2&&HM##@@@@@@A2r;:;;rrXH##MBHGXSSr;;;::;S&A;\A                             S9r .@@@#MBM@@@@@#M#B&HhsrGhGAHB#@@@@@@@@#@#h.r&X                              \A                              ;:,;@@iXS2MArM@#;s29G@@@@@@5SSr9@@&&#GX32h@@   .                              \A                           G&rB@#&AMsisi2i;ri;:;;;5@;..9@::;;;ss;s3SrsSs@&iXAr,;                            \A                           r&h2ASii#i;;:::;:;;;::;@5.   #3.:;;;:;::::;;5MsS2h2AM,                           \A                           .rr2S;;r52is;::::,::r5#S;;. .;@X,...,,...,;;As;;;sSr;                            \A                            ;:rsrrsrs522XX933hAH&r:rr:.,;sAAX2222552X3Sr;;;:i;.:                            \A                            ,,:sSssr;;;;::::,,,:;rrrr;,.,r;:,:;rrrrr;;;;rrr;::,,                            \A                            ;:;sXsiir;;:::::,,,;rs;rr,...;r,,....,,,::;rsrri;::,                            \A                            r::S&Ssisr;;;;;:::;r5r;;r,.,;ri;,:::::::;rrssri2r::;                            \A                            :r,:X3iiiis;;;;;;;:;hhA#M2iiA#AS,:;;;;;rssiisrX2r,;.                            \A                             ::,;hSSsisr;;;;;:::sGG&M@###H9;,::;;;;sssrsrs2:,;;                             \A                                  s5irsrrr;;:;;:,,,,,;r;:,,,;:::;;;rr;rr;;, .                               \A                                  :2isssrr;;;;::,,.. ..  .,::;;:;;;rr;rr;                                   \A                                  .2isriirr;;;;;;;;;;::;rrrrr;;;;rrsr;rs,                                   \A                                   2SssiiirrrSAHAGh39GGGAAHHH5rrrsssrrsi                                    \A                                   rXiiSSisrr;s55sr;rsr;;rss;:;rrsisrrsr                                    \A                                    22SS5iss;;;riir;;::;rsr;;;;rrsisrss;                                    \A                                    ;25S22Sisrssi52X99hXirrsiissiSisssri                                    \A                                    ;XS5525iiiSiiiiiiisssiiiisrssssiiiXi                                    \A                                    :MA95iisrrrr;;:,,,,::;;;;;;rrsS9&9ir                                    \A                                    .XhMMG2ir;;::::;;::;:::::;rsSGHA2;;r                                    \A                                     irSA@#A2sr;;;;rrrrr;;;;;s5&MBXr::;r                                    \A                                     i;;s9#@@B9Srrrrrrrrr;rsXH##AS;::;rs                                    \A                                     ir;;r2B@@@@#A9XXXXXhA#@@@H2s;:::;ri.                                   \A                                     5r;::;iGH#@@@@@@@@@@@@#&Srr;:::;;;siAGSs:                              \A                                   .;Sr;;::;i25239h9393XX2ir;;r;;::::;;rsiA@@@@A;                           \A                              .:SB@#2ssr;;::rSirrr;:. .,:::;rrrr;::::;;;rr,2MAM@@B:                         \A                           .2@@@@Girisrrr;;:;sSsrrrr;,:;;;rrrsr;;;:;;;;;;r:rM&G#@@@#Xi;.                    \A                        ,;G@@@hr::;isrrrrr;;:rSisrrsSiisrrrrsir;;;;;;;;;;r,2MGH@@@@@@@@@#Gr.                \A                    ;X#@@@@@@#r ,;rirrrrrrr;;;s5issrssrrrrrrsr;:::;;;;;;;:r#HM#####@@@@@@@@@@hr.            \A               ,rh#@@@@@@@###@A.,;rrr;rrrsrr;;riSissrrrsrrrss;;;;;;;;;;;::H##@##M#####@@@@@@@@@@#3;.        \A          ,r2H@@@@@@@########@@H:.:;;;;;rrsrr;;riisr;rrrrrssr;;;;;;;;;;::A@@@###############@@@@@@@@@Gr,    \A     .r9#@@@@@@@@@###########@@@@h;,,::;;;rsr;;;riiisrrsiisr;;;;;;;;:,.;M@@####################@@@@@@@@@@AS,\A  ,S#@@@@@@@@#################@@@@@@hr,.,,;;r;r;;rriiiiisr;;;:::::,.:iM@@@###M#####################@@@@@@@@G\Arh@@@@@@@######################@@@@@@@@BS;,,::;::;;rrrrr;;::,...:r2M@@@@@######################M#########@#A\AH@@@@#######M#####################@@@@@@@@@H9S;,.,,:::::::::;rX#@@@@@@@####################################H\AHM#################################@@@@@@@@@@@@@@@@###@@@@@@@@@@@@@@@######################################B\AMH############################@@#######@@@@@@@@@@@@@@@@@@@@@@@@@@@###########@@############################M\AMB##########################@@##@@@####@##@@@@@@@@@@@@@@@@@@@@#########@#####@@############################M\A#M####################@@##@@@@#@@@@@@@@@#############@@@##@####@#@##@@@@@##@@@@#@##############@###########M\A####################@#@##@@@@@@@@@@@@@@@@@#@#########@@###@@@@@@@@@@@@@@@@@@###@@@##@##########@@###########\A#####################@@@####@@@@@@@@@@@@@@@@@@####@@@#@@#@@@@@@@@@#@@@@#@@@@###@#####@######################\A#########@###@@##@@#@@@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@#@#@@@@@@@@@@@#@@#@#@#@#@#############@##########\A########@##@#@@@#@#@@@@@@@@@#@@@@@@@@@@@@@@@@@@@@@@#@@@@##@@@@@@@@@@@@@@@@@@@@@@#@##@#@@##@@####@@@@@#######\A@#@@@###@@@@#@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##@@@@@@@@@@@@@@@@@@@@@@@@@@@@###@@@@@#@@@@###@@@@#######\A##@@@##@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###@@@@@@@@@@@@@@#@###@#@###@@##@@@########\A@#@@@@@##@@@@@@@@##@@@#@@@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@#@@@#@@@@@@#@@###@##@@@@@@######\A@#@@@@@@@@@@@@@@@@@@@@@@####@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@@@@@@#@@@@@@@@#@@###@##@@@@###@@#\A@#@@@@#@@@@@@@@@@@#@@#@@@@@@#@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@###@@@#@@####@@@@@#@#@@#\A@#@@@@@#@@@@@@@#@@@@@#@@#@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#@@@@@@@@@@@###@@@@@#@@@@@@@@@#\A@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\A@#@@@@@@@@@@@#@########@######@#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#########@@@#######@##@@@#@@##";
     border-radius: inherit;
     overflow: hidden;
 }
@@ -75,11 +161,71 @@ body {
 .txt-img:active {
     transition-duration: 1s;
     background: #ccc;
-    color: #333;
+}
+
+.s-link {
+    transition-duration: 0.1s;
+    font-size: 1.6em;
+    display: block;
+    width: 3em;
+    height: 3em;
+    line-height: 3em;
+    margin: -1.5em;
+    text-align: center;
+    border-radius: 100%;
+    color: inherit;
+    text-decoration: none;
+    border: 2px solid;
+    border-color: inherit;
+    position: absolute;
+    background: inherit;
+    top: 50%;
+    left: 50%;
+}
+
+.s-link:active {
+    background: #ddd;
+}
+
+.s-link:hover,
+.s-link:focus {
+    outline: none;
+    box-shadow: inherit;
+    animation-play-state: paused;
+    z-index: 1;
+}
+
+.s-link:focus {
+    outline: none;
+    box-shadow: inherit;
+}
+
+.s-link-1 {
+    top: 25%;
+    left: 25%;
+    animation: float-around-1 30s linear infinite;
+}
+
+.s-link-2 {
+    top: 25%;
+    left: 75%;
+    animation: float-around-2 50s linear infinite;
+}
+
+.s-link-3 {
+    animation: float-around-3 70s linear reverse infinite;
+    top: 75%;
+    left: 75%;
+}
+
+.s-link-4 {
+    animation: float-around-4 110s linear reverse infinite;
+    top: 75%;
+    left: 25%;
 }
 
 @media (max-width: 512px) {
     body {
-        font-size: 10px;
+        font-size: 5px;
     }
 }
