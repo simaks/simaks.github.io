@@ -810,33 +810,31 @@
 </div>
 
 <script>
-    (function () {
-        var styleBootstrap = document.createElement('link');
-        styleBootstrap.setAttribute('rel', 'stylesheet');
-        styleBootstrap.setAttribute('href', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-        styleBootstrap.setAttribute('integrity', 'sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u');
-        styleBootstrap.setAttribute('crossorigin', 'anonymous');
-        styleBootstrap.onload = function () {
-            var pageLoader = document.getElementById('page-loader');
-            pageLoader.classList.add('loaded');
-            setTimeout(function () {
-                pageLoader.style.display = 'none';
-            }, 1000);
-        };
+    var styleBootstrap = document.createElement('link');
+    styleBootstrap.setAttribute('rel', 'stylesheet');
+    styleBootstrap.setAttribute('href', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+    styleBootstrap.setAttribute('integrity', 'sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u');
+    styleBootstrap.setAttribute('crossorigin', 'anonymous');
+    styleBootstrap.onload = function () {
+        var pageLoader = document.getElementById('page-loader');
+        pageLoader.classList.add('loaded');
+        setTimeout(function () {
+            pageLoader.style.display = 'none';
+        }, 1000);
+    };
+
+    var scriptBootstrap = document.createElement('script');
+    scriptBootstrap.setAttribute('src', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
+    scriptBootstrap.setAttribute('integrity', 'sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa');
+    scriptBootstrap.setAttribute('crossorigin', 'anonymous');
+
+    var scriptJQuery = document.createElement('script');
+    scriptJQuery.setAttribute('src', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
+    scriptJQuery.onload = function () {
         document.head.appendChild(styleBootstrap);
-
-        var scriptBootstrap = document.createElement('script');
-        scriptBootstrap.setAttribute('src', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
-        scriptBootstrap.setAttribute('integrity', 'sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa');
-        scriptBootstrap.setAttribute('crossorigin', 'anonymous');
-
-        var scriptJQuery = document.createElement('script');
-        scriptJQuery.setAttribute('src', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js');
-        scriptJQuery.onload = function () {
-            document.body.appendChild(scriptBootstrap);
-        };
-        document.body.appendChild(scriptJQuery);
-    })();
+        document.body.appendChild(scriptBootstrap);
+    };
+    document.body.appendChild(scriptJQuery);
 </script>
 
 
